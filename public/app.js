@@ -72,7 +72,7 @@ function home() {
 let filter = { search: "", category: "all", sort: "featured" };
 function shop(gender = "all") {
   if (!["all", "women", "men"].includes(gender)) gender = "all";
-  main.innerHTML = `<section class="page-title"><p class="eyebrow">THE CAVOON COLLECTION</p><h1>${gender === "all" ? "New arrivals" : gender === "women" ? "The women’s edit" : "The men’s edit"}</h1><p>Considered pieces. Countless ways to wear them.</p></section><div class="shop-layout"><aside class="filters" aria-label="Product filters"><div class="filter-tabs">${["all", "women", "men"].map((g) => `<a class="${g === gender ? "active" : ""}" href="#shop/${g}">${g === "all" ? "All pieces" : g === "women" ? "Women" : "Men"}</a>`).join("")}</div><label for="search">SEARCH THE COLLECTION</label><input id="search" type="search" placeholder="Try ‘denim’" value="${esc(filter.search)}"><label for="category">CATEGORY</label><select id="category"><option value="all">All categories</option>${[...new Set(products.filter((p) => gender === "all" || p.gender === gender).map((p) => p.category))].map((c) => `<option ${filter.category === c ? "selected" : ""}>${c}</option>`).join("")}</select><button class="remove" id="reset-filters">Reset filters</button></aside><section aria-label="Products"><div class="results-top"><span id="result-count" role="status"></span><label for="sort" hidden>Sort products</label><select id="sort" aria-label="Sort products"><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select></div><div class="grid" id="results"></div></section></div>`;
+  main.innerHTML = `<section class="page-title"><p class="eyebrow">THE CAAVON COLLECTION</p><h1>${gender === "all" ? "New arrivals" : gender === "women" ? "The women’s edit" : "The men’s edit"}</h1><p>Considered pieces. Countless ways to wear them.</p></section><div class="shop-layout"><aside class="filters" aria-label="Product filters"><div class="filter-tabs">${["all", "women", "men"].map((g) => `<a class="${g === gender ? "active" : ""}" href="#shop/${g}">${g === "all" ? "All pieces" : g === "women" ? "Women" : "Men"}</a>`).join("")}</div><label for="search">SEARCH THE COLLECTION</label><input id="search" type="search" placeholder="Try ‘denim’" value="${esc(filter.search)}"><label for="category">CATEGORY</label><select id="category"><option value="all">All categories</option>${[...new Set(products.filter((p) => gender === "all" || p.gender === gender).map((p) => p.category))].map((c) => `<option ${filter.category === c ? "selected" : ""}>${c}</option>`).join("")}</select><button class="remove" id="reset-filters">Reset filters</button></aside><section aria-label="Products"><div class="results-top"><span id="result-count" role="status"></span><label for="sort" hidden>Sort products</label><select id="sort" aria-label="Sort products"><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select></div><div class="grid" id="results"></div></section></div>`;
   const update = () => {
     let list = products.filter(
       (p) =>
@@ -129,7 +129,7 @@ function saved() {
 }
 function account() {
   if (user) {
-    main.innerHTML = `<section class="account"><p class="eyebrow">YOUR CAVOON SPACE</p><h2 id="welcome"></h2><p>This is your demo session for this browser tab.</p><dl><dt>Status</dt><dd>Demo signed in</dd><dt>Username</dt><dd id="session-user"></dd><dt>Saved pieces</dt><dd>${favorites.length}</dd><dt>Items in bag</dt><dd>${bag.reduce((s, x) => s + x.qty, 0)}</dd></dl><button class="btn" id="logout">Sign out</button> <a class="text-link" href="#shop/all">Back to the collection ↗</a></section>`;
+    main.innerHTML = `<section class="account"><p class="eyebrow">YOUR CAAVON SPACE</p><h2 id="welcome"></h2><p>This is your demo session for this browser tab.</p><dl><dt>Status</dt><dd>Demo signed in</dd><dt>Username</dt><dd id="session-user"></dd><dt>Saved pieces</dt><dd>${favorites.length}</dd><dt>Items in bag</dt><dd>${bag.reduce((s, x) => s + x.qty, 0)}</dd></dl><button class="btn" id="logout">Sign out</button> <a class="text-link" href="#shop/all">Back to the collection ↗</a></section>`;
     document.querySelector("#welcome").textContent = `Welcome, ${user.name}.`;
     document.querySelector("#session-user").textContent = user.name;
     document.querySelector("#logout").onclick = () => {
@@ -140,7 +140,7 @@ function account() {
     };
     return;
   }
-  main.innerHTML = `<section class="auth-wrap"><div class="auth-photo" role="img" aria-label="Fashion shopping inspiration"></div><div class="auth-panel"><p class="eyebrow">A SPACE FOR YOUR STYLE</p><h1>Welcome<br>to CAVOON.</h1><p>Save what you love. Build your next look.</p><p class="hint">Demo access: choose any username and use password <strong>cavoon123</strong>. No real account is created.</p><form id="login-form"><label for="username">Username</label><input id="username" name="username" autocomplete="username" maxlength="40" required><label for="password">Demo password</label><input id="password" name="password" type="password" autocomplete="off" required><button type="button" class="remove" id="show-password" aria-pressed="false">Show password</button><p class="error" id="login-error" role="alert"></p><button class="btn">Sign in ↗</button></form><p><a class="text-link" href="#shop/all">Continue as a guest</a></p></div></section>`;
+  main.innerHTML = `<section class="auth-wrap"><div class="auth-photo" role="img" aria-label="Fashion shopping inspiration"></div><div class="auth-panel"><p class="eyebrow">A SPACE FOR YOUR STYLE</p><h1>Welcome<br>to CAAVON.</h1><p>Save what you love. Build your next look.</p><p class="hint">Demo access: choose any username and use password <strong>cavoon123</strong>. No real account is created.</p><form id="login-form"><label for="username">Username</label><input id="username" name="username" autocomplete="username" maxlength="40" required><label for="password">Demo password</label><input id="password" name="password" type="password" autocomplete="off" required><button type="button" class="remove" id="show-password" aria-pressed="false">Show password</button><p class="error" id="login-error" role="alert"></p><button class="btn">Sign in ↗</button></form><p><a class="text-link" href="#shop/all">Continue as a guest</a></p></div></section>`;
   document.querySelector("#show-password").onclick = (e) => {
     const input = document.querySelector("#password");
     input.type = input.type === "password" ? "text" : "password";
@@ -159,7 +159,7 @@ function account() {
     user = { name };
     save();
     location.hash = "shop/all";
-    toast("Welcome to CAVOON.");
+    toast("Welcome to CAAVON.");
   };
 }
 function bagPage() {
@@ -196,7 +196,7 @@ function detail(id) {
   }
   if (!main.innerHTML) home();
   lastFocus = document.activeElement;
-  dialog.innerHTML = `<button class="close-dialog" aria-label="Close product details">×</button><div class="detail"><img src="${p.image}" alt="${p.name}"><div class="detail-info"><p class="eyebrow">CAVOON / ${p.category}</p><h2>${p.name}</h2><h3>${money(p.price)}</h3><p>${p.description}</p><p>Color: ${p.color}</p><form id="add-form"><label for="size">Select your size</label><select id="size" required><option value="">Choose a size</option>${p.sizes.map((s) => `<option>${s}</option>`).join("")}</select><button class="btn">Add to bag ↗</button></form><button class="remove" data-favorite="${p.id}">${favorites.includes(p.id) ? "Remove from" : "Add to"} favorites</button><p style="font-size:11px">Demo product · Illustrative photography</p></div></div>`;
+  dialog.innerHTML = `<button class="close-dialog" aria-label="Close product details">×</button><div class="detail"><img src="${p.image}" alt="${p.name}"><div class="detail-info"><p class="eyebrow">CAAVON / ${p.category}</p><h2>${p.name}</h2><h3>${money(p.price)}</h3><p>${p.description}</p><p>Color: ${p.color}</p><form id="add-form"><label for="size">Select your size</label><select id="size" required><option value="">Choose a size</option>${p.sizes.map((s) => `<option>${s}</option>`).join("")}</select><button class="btn">Add to bag ↗</button></form><button class="remove" data-favorite="${p.id}">${favorites.includes(p.id) ? "Remove from" : "Add to"} favorites</button><p style="font-size:11px">Demo product · Illustrative photography</p></div></div>`;
   if (!dialog.open) dialog.showModal();
   dialog.querySelector(".close-dialog").onclick = () => dialog.close();
   dialog.querySelector("#add-form").onsubmit = (e) => {
@@ -281,7 +281,7 @@ function route() {
     main.innerHTML = `<section class="confirmation"><p class="eyebrow">THE DEMO IS COMPLETE</p><h1>Good choices.<br>Great style.</h1><p>Your simulated checkout is complete and your bag has been cleared. No payment was taken and no real order was placed.</p><a class="btn" href="#shop/all">Keep exploring ↗</a></section>`;
   else home();
   window.scrollTo(0, 0);
-  document.title = `${page === "home" ? "Wear your own way" : page === "shop" ? "The collection" : page === "account" ? "Your account" : page === "bag" ? "Shopping bag" : page === "favorites" ? "Favorites" : "CAVOON"} | CAVOON`;
+  document.title = `${page === "home" ? "Wear your own way" : page === "shop" ? "The collection" : page === "account" ? "Your account" : page === "bag" ? "Shopping bag" : page === "favorites" ? "Favorites" : "CAAVON"} | CAAVON`;
 }
 async function init() {
   main.innerHTML = '<p class="loading">Opening the collection…</p>';
