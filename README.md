@@ -20,20 +20,15 @@ A professional e-commerce storefront demo for CIS-486 HOTEL, built with Node.js,
 
 | Requirement | Evidence (Direct Link to Code/Issue) |
 |---|---|
-| **MongoDB connection** | [server/app.js](https://github.com/saimon-hasan/fullstack-golf/blob/main/server/app.js#L43) |
-| **GET all** | [server/app.js](https://github.com/saimon-hasan/fullstack-golf/blob/main/server/app.js#L22) |
-| **GET one** | [server/app.js](https://github.com/saimon-hasan/fullstack-golf/blob/main/server/app.js#L32) |
+| **MongoDB connection** | [server/app.js](https://github.com/saimon-hasan/fullstack-golf/blob/hotel/server/app.js) |
+| **GET all** | [server/app.js](https://github.com/saimon-hasan/fullstack-golf/blob/hotel/server/app.js) |
+| **GET one** | [server/app.js](https://github.com/saimon-hasan/fullstack-golf/blob/hotel/server/app.js) |
 | **filtered GET** | [server/app.js](https://github.com/saimon-hasan/fullstack-golf/blob/main/server/app.js#L22) |
 | **POST / create** | [server/app.js](https://github.com/saimon-hasan/fullstack-golf/blob/main/server/app.js#L41) |
 | **PATCH / update** | [server/app.js](https://github.com/saimon-hasan/fullstack-golf/blob/main/server/app.js#L51) |
 | **DELETE** | [server/app.js](https://github.com/saimon-hasan/fullstack-golf/blob/main/server/app.js#L63) |
 | **frontend `fetch()`** | [public/app.js](https://github.com/saimon-hasan/fullstack-golf/blob/main/public/app.js#L20) |
 | **persistent CRUD** | [Live Site Admin Panel](http://34.44.156.54/#admin) |
-| **HOTEL milestone** | [Link to your GitHub Milestone] |
-| **example issue** | [Link to your Issue #1] |
-| **development branch** | [Link to feat/mongodb-connection branch] |
-| **feature → dev** | [Link to PR #1] |
-| **dev → main** | [Link to PR #2] |
 | **PROD deployment** | [Successful GitHub Action Run](https://github.com/saimon-hasan/fullstack-golf/actions/runs/34935965112) |
 
 ---
