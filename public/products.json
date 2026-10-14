@@ -1,0 +1,90 @@
+[
+  {
+    "id": "w1",
+    "name": "The Everyday Shirt",
+    "gender": "women",
+    "category": "Shirts",
+    "price": 39,
+    "color": "Cloud white",
+    "image": "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?auto=format&fit=crop&w=900&q=85",
+    "description": "A sleeveless white essential with a clean silhouette. Pair it with your favorite denim.",
+    "sizes": ["XS", "S", "M", "L", "XL"]
+  },
+  {
+    "id": "w2",
+    "name": "Statement Denim",
+    "gender": "women",
+    "category": "Denim",
+    "price": 59,
+    "color": "Vintage blue",
+    "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=900&q=85",
+    "description": "Distressed denim with colorful details for a more expressive everyday look.",
+    "sizes": ["XS", "S", "M", "L", "XL"]
+  },
+  {
+    "id": "w3",
+    "name": "The Weekend Knit",
+    "gender": "women",
+    "category": "Knitwear",
+    "price": 49,
+    "color": "Warm oat",
+    "image": "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=900&q=85",
+    "description": "A soft-looking textured layer for slow mornings and cooler evenings.",
+    "sizes": ["XS", "S", "M", "L", "XL"]
+  },
+  {
+    "id": "w4",
+    "name": "The Biker Jacket",
+    "gender": "women",
+    "category": "Outerwear",
+    "price": 89,
+    "color": "Black",
+    "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=900&q=85",
+    "description": "A structured biker-inspired layer with bold hardware and an easy attitude.",
+    "sizes": ["XS", "S", "M", "L", "XL"]
+  },
+  {
+    "id": "m1",
+    "name": "Essential Cotton Tee",
+    "gender": "men",
+    "category": "T-shirts",
+    "price": 25,
+    "color": "Chalk",
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85",
+    "description": "A clean crew-neck staple. Pair it with denim or wear beneath an open shirt.",
+    "sizes": ["XS", "S", "M", "L", "XL"]
+  },
+  {
+    "id": "m2",
+    "name": "Classic White Shirt",
+    "gender": "men",
+    "category": "Shirts",
+    "price": 65,
+    "color": "White",
+    "image": "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=900&q=85",
+    "description": "A crisp collared shirt for dressing up your everyday rotation.",
+    "sizes": ["XS", "S", "M", "L", "XL"]
+  },
+  {
+    "id": "m3",
+    "name": "Off-Duty Hoodie",
+    "gender": "men",
+    "category": "Knitwear",
+    "price": 55,
+    "color": "Heather grey",
+    "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=85",
+    "description": "A relaxed hooded layer that belongs in every weekend rotation.",
+    "sizes": ["XS", "S", "M", "L", "XL"]
+  },
+  {
+    "id": "m4",
+    "name": "Classic Denim Jacket",
+    "gender": "men",
+    "category": "Outerwear",
+    "price": 79,
+    "color": "Washed blue",
+    "image": "https://images.unsplash.com/photo-1543076447-215ad9ba6923?auto=format&fit=crop&w=900&q=85",
+    "description": "A familiar silhouette with endless styling possibilities. Layer it your way.",
+    "sizes": ["XS", "S", "M", "L", "XL"]
+  }
+]

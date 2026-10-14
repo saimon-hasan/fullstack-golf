@@ -1,0 +1,87 @@
+
+name: Deploy main to GCP
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gcp-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    env:
+      SSH_HOST: ${{ vars.SSH_HOST }}
+      SSH_USER: ${{ vars.SSH_USER }}
+      SSH_HOST_FINGERPRINT: ${{ vars.SSH_HOST_FINGERPRINT }}
+      APP_DIR: ${{ vars.APP_DIR }}
+      PM2_NAME: ${{ vars.PM2_NAME }}
+
+    steps:
+      - name: Prepare SSH and verify server identity
+        shell: bash
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+
+          ssh-keyscan -T 15 -t ed25519 "$SSH_HOST" > ~/.ssh/known_hosts
+          actual=$(ssh-keygen -lf ~/.ssh/known_hosts | awk '{print $2}')
+
+          if [ "$actual" != "$SSH_HOST_FINGERPRINT" ]; then
+            echo "Server fingerprint does not match."
+            exit 1
+          fi
+
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Update app and verify health
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf -v remote_command 'bash -s -- %q %q' "$APP_DIR" "$PM2_NAME"
+
+          ssh -T \
+            -i ~/.ssh/deploy_key \
+            -o BatchMode=yes \
+            -o IdentitiesOnly=yes \
+            -o StrictHostKeyChecking=yes \
+            -o ConnectTimeout=15 \
+            "$SSH_USER@$SSH_HOST" "$remote_command" <<'REMOTE'
+          set -euo pipefail
+          export PATH="/usr/local/bin:/usr/bin:/bin:$PATH"
+          cd "$1"
+
+          test "$(git branch --show-current)" = "main"
+          git pull --ff-only origin main
+          npm ci
+          pm2 restart "$2"
+          pm2 save
+
+          curl --fail --silent --show-error \
+            --retry 10 --retry-connrefused --retry-delay 2 \
+            --max-time 10 http://127.0.0.1:3000/api/health
+
+          curl --fail --silent --show-error \
+            --max-time 10 http://127.0.0.1/api/health
+
+          git log -1 --oneline
+          REMOTE
+
+      - name: Remove temporary private key
+        if: always()
+        shell: bash
+        run: rm -f ~/.ssh/deploy_key
