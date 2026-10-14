@@ -20,8 +20,8 @@ A professional e-commerce storefront demo for CIS-486 HOTEL, built with Node.js,
 
 | Requirement | Evidence (Direct Link to Code/Issue) |
 |---|---|
-| **MongoDB connection** | [server/app.js](https://github.com/saimon-hasan/fullstack-golf/blob/main/server/app.js#L43) |
-| **GET all** | [server/app.js](https://github.com/saimon-hasan/fullstack-golf/blob/main/server/app.js#L22) |
+| **MongoDB connection** | [server/app.js](https://github.com/saimon-hasan/fullstack-golf/blob/hotel/server/app.js) |
+| **GET all** | [server/app.js](https://github.com/saimon-hasan/fullstack-golf/blob/hotel/server/app.js) |
 | **GET one** | [server/app.js](https://github.com/saimon-hasan/fullstack-golf/blob/main/server/app.js#L32) |
 | **filtered GET** | [server/app.js](https://github.com/saimon-hasan/fullstack-golf/blob/main/server/app.js#L22) |
 | **POST / create** | [server/app.js](https://github.com/saimon-hasan/fullstack-golf/blob/main/server/app.js#L41) |
