@@ -103,24 +103,4 @@ Never include credentials in source code, frontend JavaScript, documentation, is
 Install backend dependencies from the repository root:
 
 ```bash
-npm ci --prefix server
-```
 
-Create an ignored `server/.env` containing your private `MONGODB_URI`, then start:
-
-```bash
-cd server
-node app.js
-```
-
-Open http://localhost:3000.
-
----
-
-## 📤 Submission
-
-Submit one URL:
-
-https://github.com/saimon-hasan/fullstack-golf
-
-The grading entry point is `docs/README.md`. Merge the final changes into main, include direct evidence links, and keep the GCP VM available until grading is complete.
