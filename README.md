@@ -44,3 +44,4 @@ A professional e-commerce storefront demo for CIS-486 HOTEL, built with Node.js,
 ```bash
 npm install
 node server/app.js
+.
